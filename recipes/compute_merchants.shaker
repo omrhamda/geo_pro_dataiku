@@ -9,6 +9,10 @@
       {
         "d": true,
         "name": "merchant_geopoint"
+      },
+      {
+        "d": true,
+        "name": "merchant_bubble"
       }
     ]
   },
@@ -193,6 +197,22 @@
         "appliesTo": "COLUMNS"
       },
       "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "GeoPointBufferProcessor",
+      "params": {
+        "outputColumn": "merchant_bubble",
+        "shapeMode": "CIRCLE",
+        "width": 0.0,
+        "inputColumn": "merchant_geopoint",
+        "unitMode": "KILOMETERS",
+        "radius": 10.0,
+        "height": 0.0
+      },
+      "alwaysShowComment": false
     }
   ],
   "maxProcessedMemTableBytes": -1,
@@ -229,6 +249,7 @@
     "merchant_geopoint": 169,
     "merchant_id": 127,
     "merchant_category_id": 165,
+    "merchant_bubble": 128,
     "subsector_description": 197,
     "longitude": 134,
     "merchant_longitude": 150
