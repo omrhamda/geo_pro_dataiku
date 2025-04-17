@@ -9,6 +9,18 @@
       {
         "d": true,
         "name": "cardholder_geopoint"
+      },
+      {
+        "d": true,
+        "name": "cardholder_county"
+      },
+      {
+        "d": true,
+        "name": "cardholder_county_geom"
+      },
+      {
+        "d": true,
+        "name": "cardholder_state"
       }
     ]
   },
@@ -153,6 +165,34 @@
         "appliesTo": "COLUMNS"
       },
       "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CityLevelReverseGeocoder",
+      "params": {
+        "doOutputBoundaries": true,
+        "l4OutCol": "cardholder_state",
+        "inputCol": "cardholder_geopoint",
+        "l6OutCol": "cardholder_county"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsSelector",
+      "params": {
+        "columns": [
+          "cardholder_state_enName",
+          "cardholder_county_enName"
+        ],
+        "keep": false,
+        "appliesTo": "COLUMNS"
+      },
+      "alwaysShowComment": false
     }
   ],
   "maxProcessedMemTableBytes": -1,
@@ -182,18 +222,25 @@
   },
   "analysisColumnData": {},
   "columnWidthsByName": {
+    "cardholder_state": 135,
     "cardholder_id": 141,
-    "internal_card_mapping": 197,
-    "cardholder_longitude": 165,
     "latitude": 134,
-    "random_int": 100,
     "reward_program": 155,
+    "cardholder_county_geom": 300,
     "first_active_month": 150,
     "cardholder_latitude": 158,
+    "cardholder_geopoint": 183,
+    "cardholer_state": 128,
+    "cardholder_state_enName": 188,
+    "cardholer_state_enName": 180,
+    "internal_card_mapping": 197,
+    "cardholder_longitude": 165,
+    "random_int": 100,
+    "cardholder_county_enName": 195,
     "fico_score": 100,
     "age": 100,
-    "longitude": 134,
-    "cardholder_geopoint": 183
+    "cardholder_county": 183,
+    "longitude": 134
   },
   "sorting": [],
   "globalSearchQuery": "",
