@@ -1,0 +1,226 @@
+{
+  "joins": [
+    {
+      "table2": 1,
+      "table1": 0,
+      "conditionsMode": "AND",
+      "type": "INNER",
+      "outerJoinOnTheLeft": true,
+      "on": [
+        {
+          "column1": {
+            "name": "merchant_id",
+            "table": 0
+          },
+          "dateDiffUnit": "DAY",
+          "column2": {
+            "name": "merchant_id",
+            "table": 1
+          },
+          "windowFrom": 0,
+          "maxMatches": 1,
+          "caseInsensitive": false,
+          "maxDistance": 0,
+          "normalizeText": false,
+          "strict": false,
+          "type": "EQ",
+          "windowTo": 0
+        }
+      ]
+    },
+    {
+      "table2": 2,
+      "table1": 0,
+      "conditionsMode": "AND",
+      "rightLimit": {},
+      "type": "LEFT",
+      "outerJoinOnTheLeft": true,
+      "on": [
+        {
+          "column1": {
+            "name": "cardholder_id",
+            "table": 0
+          },
+          "dateDiffUnit": "DAY",
+          "column2": {
+            "name": "cardholder_id",
+            "table": 2
+          },
+          "windowFrom": 0,
+          "maxMatches": 1,
+          "caseInsensitive": false,
+          "maxDistance": 0,
+          "normalizeText": false,
+          "strict": false,
+          "type": "EQ",
+          "windowTo": 0
+        }
+      ]
+    }
+  ],
+  "selectedColumns": [
+    {
+      "name": "transaction_id",
+      "type": "string",
+      "table": 0
+    },
+    {
+      "name": "authorized_flag",
+      "type": "string",
+      "table": 0
+    },
+    {
+      "name": "purchase_date",
+      "type": "string",
+      "table": 0
+    },
+    {
+      "name": "purchase_amount",
+      "type": "string",
+      "table": 0
+    },
+    {
+      "name": "cardholder_id",
+      "type": "string",
+      "table": 0
+    },
+    {
+      "name": "merchant_id",
+      "type": "string",
+      "table": 0
+    },
+    {
+      "name": "merchant_latitude",
+      "type": "double",
+      "table": 1
+    },
+    {
+      "name": "merchant_longitude",
+      "type": "double",
+      "table": 1
+    },
+    {
+      "name": "cardholder_latitude",
+      "type": "double",
+      "table": 2
+    },
+    {
+      "name": "cardholder_longitude",
+      "type": "double",
+      "table": 2
+    }
+  ],
+  "resolvedSelectedColumns": [],
+  "engineParams": {
+    "hive": {
+      "skipPrerunValidate": false,
+      "hiveconf": [],
+      "inheritConf": "default",
+      "addDkuUdf": false,
+      "executionEngine": "HIVECLI_LOCAL"
+    },
+    "sqlPipelineParams": {
+      "pipelineAllowMerge": true,
+      "pipelineAllowStart": true
+    },
+    "impala": {
+      "forceStreamMode": true
+    },
+    "lowerCaseSchemaIfEngineRequiresIt": true,
+    "sparkSQL": {
+      "skipPrerunValidate": false,
+      "pipelineAllowMerge": true,
+      "pipelineAllowStart": true,
+      "useGlobalMetastore": false,
+      "readParams": {
+        "mode": "AUTO",
+        "autoModeRepartitionInto": 10,
+        "map": {}
+      },
+      "overwriteOutputSchema": false,
+      "executionEngine": "SPARK_SUBMIT",
+      "sparkConfig": {
+        "conf": [],
+        "inheritConf": "default"
+      }
+    }
+  },
+  "virtualInputs": [
+    {
+      "outputColumnsSelectionMode": "MANUAL",
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "originLabel": "tx",
+      "index": 0,
+      "computedColumns": []
+    },
+    {
+      "outputColumnsSelectionMode": "AUTO_NON_CONFLICTING",
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "originLabel": "merchants",
+      "index": 1,
+      "computedColumns": []
+    },
+    {
+      "outputColumnsSelectionMode": "AUTO_NON_CONFLICTING",
+      "preFilter": {},
+      "index": 2
+    }
+  ],
+  "computedColumns": [],
+  "postFilter": {
+    "$status": {
+      "schema": {
+        "columns": [
+          {
+            "name": "transaction_id",
+            "type": "string"
+          },
+          {
+            "name": "authorized_flag",
+            "type": "string"
+          },
+          {
+            "name": "purchase_date",
+            "type": "string"
+          },
+          {
+            "name": "purchase_amount",
+            "type": "string"
+          },
+          {
+            "name": "cardholder_id",
+            "type": "string"
+          },
+          {
+            "name": "merchant_id",
+            "type": "string"
+          },
+          {
+            "name": "merchant_latitude",
+            "type": "double"
+          },
+          {
+            "name": "merchant_longitude",
+            "type": "double"
+          },
+          {
+            "name": "cardholder_latitude",
+            "type": "double"
+          },
+          {
+            "name": "cardholder_longitude",
+            "type": "double"
+          }
+        ],
+        "userModified": false
+      }
+    }
+  },
+  "enableAutoCastInJoinConditions": false
+}

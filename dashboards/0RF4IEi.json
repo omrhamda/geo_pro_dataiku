@@ -1,0 +1,41 @@
+{
+  "checklists": {
+    "checklists": []
+  },
+  "columnNumber": 36,
+  "creationTag": {
+    "extendedProperties": {},
+    "lastModifiedBy": {
+      "login": "sean"
+    },
+    "lastModifiedOn": 1701259749442,
+    "versionNumber": 0
+  },
+  "customFields": {},
+  "listed": true,
+  "name": "TUT_GEO_PROCESSORS's default dashboard",
+  "owner": "sean",
+  "pages": [
+    {
+      "enableCrossFilters": true,
+      "filtersParams": {
+        "panelPosition": "TOP"
+      },
+      "grid": {
+        "tiles": []
+      },
+      "id": "r98G0sJ",
+      "showTitle": false
+    }
+  ],
+  "showGrid": true,
+  "tags": [],
+  "versionTag": {
+    "extendedProperties": {},
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1701457047451,
+    "versionNumber": 1
+  }
+}
