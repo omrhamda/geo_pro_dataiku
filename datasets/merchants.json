@@ -88,8 +88,7 @@
   "schema": {
     "columns": [
       {"name":"merchant_id","type":"string"},
-      {"name":"merchant_latitude","type":"double"},
-      {"name":"merchant_longitude","type":"double"}
+      {"name":"merchant_geopoint","type":"string"}
     ],
     "userModified": true
   },
