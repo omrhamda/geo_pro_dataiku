@@ -88,8 +88,7 @@
   "schema": {
     "columns": [
       {"name":"cardholder_id","type":"string"},
-      {"name":"cardholder_latitude","type":"double"},
-      {"name":"cardholder_longitude","type":"double"}
+      {"name":"cardholder_geopoint","type":"string"}
     ],
     "userModified": true
   },
