@@ -1,6 +1,16 @@
 {
   "columnsSelection": {
-    "mode": "ALL"
+    "mode": "ALL",
+    "list": [
+      {
+        "d": true,
+        "name": "cardholder_id"
+      },
+      {
+        "d": true,
+        "name": "cardholder_geopoint"
+      }
+    ]
   },
   "explorationSampling": {
     "_refreshTrigger": 0,
@@ -28,6 +38,7 @@
     "autoRefreshSample": false
   },
   "explorationFilters": [],
+  "columnOrder": [],
   "columnUseScientificNotationByName": {},
   "origin": "PREPARE_RECIPE",
   "exploreUIParams": {
@@ -91,6 +102,7 @@
             "matchingMode": "FULL_STRING",
             "action": "KEEP_ROW",
             "appliesTo": "SINGLE_COLUMN",
+            "exclude": false,
             "processNullOrEmptyValues": false
           },
           "alwaysShowComment": false
@@ -113,6 +125,33 @@
           "alwaysShowComment": false
         }
       ],
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "GeoPointCreator",
+      "params": {
+        "out_column": "cardholder_geopoint",
+        "lat_column": "cardholder_latitude",
+        "lon_column": "cardholder_longitude"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsSelector",
+      "params": {
+        "columns": [
+          "cardholder_longitude",
+          "cardholder_latitude"
+        ],
+        "keep": false,
+        "appliesTo": "COLUMNS"
+      },
       "alwaysShowComment": false
     }
   ],
@@ -153,13 +192,15 @@
     "cardholder_latitude": 158,
     "fico_score": 100,
     "age": 100,
-    "longitude": 134
+    "longitude": 134,
+    "cardholder_geopoint": 183
   },
   "sorting": [],
   "globalSearchQuery": "",
   "coloring": {
     "scheme": "MEANING_AND_STATUS",
     "individualColumns": [],
-    "valueColoringMode": "HASH"
+    "valueColoringMode": "HASH",
+    "individualColumnsRules": []
   }
 }
