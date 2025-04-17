@@ -88,7 +88,10 @@
   "schema": {
     "columns": [
       {"name":"cardholder_id","type":"string"},
-      {"name":"cardholder_geopoint","type":"string"}
+      {"name":"cardholder_geopoint","type":"string"},
+      {"name":"cardholder_county","type":"string"},
+      {"name":"cardholder_county_geom","type":"string"},
+      {"name":"cardholder_state","type":"string"}
     ],
     "userModified": true
   },
