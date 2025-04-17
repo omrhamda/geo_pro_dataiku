@@ -1,6 +1,60 @@
 {
   "columnsSelection": {
-    "mode": "ALL"
+    "mode": "ALL",
+    "list": [
+      {
+        "d": true,
+        "name": "transaction_id"
+      },
+      {
+        "d": true,
+        "name": "authorized_flag"
+      },
+      {
+        "d": true,
+        "name": "purchase_date"
+      },
+      {
+        "d": true,
+        "name": "purchase_amount"
+      },
+      {
+        "d": true,
+        "name": "cardholder_id"
+      },
+      {
+        "d": true,
+        "name": "merchant_id"
+      },
+      {
+        "d": true,
+        "name": "merchant_geopoint"
+      },
+      {
+        "d": true,
+        "name": "cardholder)merchant_distance_km"
+      },
+      {
+        "d": true,
+        "name": "merchant_bubble"
+      },
+      {
+        "d": true,
+        "name": "cardholder_geopoint"
+      },
+      {
+        "d": true,
+        "name": "cardholder_county"
+      },
+      {
+        "d": true,
+        "name": "cardholder_county_geom"
+      },
+      {
+        "d": true,
+        "name": "cardholder_state"
+      }
+    ]
   },
   "explorationSampling": {
     "_refreshTrigger": 0,
@@ -28,9 +82,28 @@
     "autoRefreshSample": false
   },
   "explorationFilters": [],
+  "columnOrder": [],
   "columnUseScientificNotationByName": {},
-  "exploreUIParams": {},
-  "steps": [],
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "GeoDistanceProcessor",
+      "params": {
+        "output": "cardholder)merchant_distance_km",
+        "input2": "merchant_geopoint",
+        "outputUnit": "KILOMETERS",
+        "input1": "cardholder_geopoint",
+        "compareTo": "COLUMN"
+      },
+      "alwaysShowComment": false
+    }
+  ],
   "maxProcessedMemTableBytes": -1,
   "previewMode": "ALL_ROWS",
   "vizSampling": {
@@ -57,12 +130,27 @@
     "autoRefreshSample": false
   },
   "analysisColumnData": {},
-  "columnWidthsByName": {},
+  "columnWidthsByName": {
+    "transaction_id": 120,
+    "cardholder_state": 135,
+    "cardholder_id": 141,
+    "cardholder)merchant_distance_km": 267,
+    "merchant_id": 127,
+    "cardholder_county_geom": 300,
+    "merchant_bubble": 300,
+    "cardholder_geopoint": 183,
+    "purchase_amount": 134,
+    "merchant_geopoint": 169,
+    "purchase_date": 183,
+    "authorized_flag": 128,
+    "cardholder_county": 169
+  },
   "sorting": [],
   "globalSearchQuery": "",
   "coloring": {
     "scheme": "MEANING_AND_STATUS",
     "individualColumns": [],
-    "valueColoringMode": "HASH"
+    "valueColoringMode": "HASH",
+    "individualColumnsRules": []
   }
 }
