@@ -15,7 +15,8 @@
   "additionalDashboardUsers": {
     "users": []
   },
-  "tutorialProject": false,
+  "tutorialProject": true,
+  "tutorialId": "TUT_GEO_PROCESSORS",
   "settings": {
     "flowAnchorSourcesAndSinks": true,
     "flowDisplaySettings": {
@@ -140,7 +141,8 @@
     },
     "dkuProperties": []
   },
-  "name": "Geographic Processors",
+  "name": "Geographic Processors for Administrator",
+  "projectStatus": "Sandbox",
   "imgPattern": 4,
   "showInitials": false,
   "metrics": {
