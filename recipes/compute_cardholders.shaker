@@ -49,7 +49,42 @@
     },
     "autoRefreshSample": false
   },
-  "explorationFilters": [],
+  "explorationFilters": [
+    {
+      "validityFilter": {
+        "column": "cardholder_county",
+        "type": "validity",
+        "params": {
+          "nok": true,
+          "type": "Text",
+          "ok": true,
+          "empty": true
+        }
+      },
+      "column": "cardholder_county",
+      "active": true,
+      "alphanumFilter": {
+        "selectedValues": [],
+        "column": "cardholder_county",
+        "type": "alphanum",
+        "params": {
+          "mode": "full_string",
+          "normalization": "exact"
+        }
+      },
+      "type": "columnFilter",
+      "$$hashKey": "object:2904",
+      "facet": {
+        "columnType": "ALPHANUM",
+        "selectedValues": {},
+        "column": "cardholder_county",
+        "sort": "count",
+        "type": "facet",
+        "currentMode": "ALPHANUM"
+      },
+      "currentMode": "FACET"
+    }
+  ],
   "columnOrder": [],
   "columnUseScientificNotationByName": {},
   "origin": "PREPARE_RECIPE",
@@ -193,6 +228,17 @@
         "appliesTo": "COLUMNS"
       },
       "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "geoSimplify(cardholder_county_geom, 0.01)",
+        "column": "cardholder_county_geom"
+      },
+      "alwaysShowComment": false
     }
   ],
   "maxProcessedMemTableBytes": -1,
@@ -223,6 +269,7 @@
   "analysisColumnData": {},
   "columnWidthsByName": {
     "cardholder_state": 135,
+    "cardholder_country_geom": 300,
     "cardholder_id": 141,
     "latitude": 134,
     "reward_program": 155,
